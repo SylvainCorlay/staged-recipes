@@ -1,0 +1,30 @@
+{% set name = "julia" %}
+{% set version = "0.5.1" %}
+{% set sha256 = "ae9512a9e0838e7e579acc3af653c220ff51206ec921967da8c72e8402105ed3" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://julialang.s3.amazonaws.com/bin/linux/x64/0.5/julia-{{ version }}-linux-x86_64.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  skip: true  # [not linux]
+
+about:
+  home: https://julialang.org
+  license: MIT
+  license_family: MIT
+  summary: 'The Julia Language: A fresh approach to technical computing.'
+  description: |
+    Julia is a high-level, high-performance dynamic programming language for numerical computing.
+  doc_url: https://docs.julialang.org
+  dev_url: https://github.com/JuliaLang/julia
+
+extra:
+  recipe-maintainers:
+    - SylvainCorlay
